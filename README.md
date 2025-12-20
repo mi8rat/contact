@@ -31,8 +31,4 @@ Jail source code is available under the BSD 2 clause [License](/LICENSE).
 
 ## Contact
 
-[@bdowns328](http://twitter.com/bdowns328)
-
-## Image Credit
-
-www.debarbora.com
+[@michael8sa](http://twitter.com/michael8sa)
