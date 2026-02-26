@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Me</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1209;
+    --paper: #f5f0e8;
+    --accent: #c84b11;
+    --light: #e8e0d0;
+    --muted: #7a7060;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Mono', monospace;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background-image:
+      radial-gradient(ellipse at 20% 80%, rgba(200,75,17,0.06) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 10%, rgba(200,75,17,0.04) 0%, transparent 50%);
+  }
+
+  .container {
+    width: 100%;
+    max-width: 560px;
+    animation: rise 0.8s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.4rem);
+    line-height: 1.1;
+    font-weight: 700;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .sub {
+    margin-top: 0.75rem;
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .divider {
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.6rem;
+    animation: rise 0.8s cubic-bezier(0.16,1,0.3,1) both;
+  }
+  .form-group:nth-child(1) { animation-delay: 0.1s; }
+  .form-group:nth-child(2) { animation-delay: 0.18s; }
+  .form-group:nth-child(3) { animation-delay: 0.26s; }
+  .form-group:nth-child(4) { animation-delay: 0.34s; }
+
+  label {
+    display: block;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  input, textarea, select {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1.5px solid var(--light);
+    padding: 0.6rem 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.95rem;
+    color: var(--ink);
+    transition: border-color 0.25s;
+    outline: none;
+    appearance: none;
+    resize: none;
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: #c0b8a8;
+  }
+
+  input:focus, textarea:focus, select:focus {
+    border-bottom-color: var(--accent);
+  }
+
+  textarea {
+    min-height: 90px;
+    line-height: 1.7;
+  }
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  button {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 0.9rem 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    width: 100%;
+    justify-content: center;
+  }
+
+  button:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  button:active { transform: translateY(0); }
+
+  .arrow {
+    transition: transform 0.2s;
+  }
+  button:hover .arrow { transform: translateX(4px); }
+
+  /* Success state */
+  .success {
+    display: none;
+    text-align: center;
+    padding: 3rem 2rem;
+    animation: rise 0.6s cubic-bezier(0.16,1,0.3,1) both;
+  }
+
+  .success-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .success h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .success p {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  .error-msg {
+    font-size: 0.65rem;
+    color: var(--accent);
+    margin-top: 0.3rem;
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header" style="animation: rise 0.7s cubic-bezier(0.16,1,0.3,1) both;">
+    <p class="label">Get in touch</p>
+    <h1>Let's <em>talk.</em></h1>
+    <div class="divider"></div>
+    <p class="sub">Have a project in mind or just want to say hello?<br>Drop me a message and I'll get back to you soon.</p>
+  </div>
+
+  <form id="contactForm" novalidate>
+    <div class="row">
+      <div class="form-group">
+        <label for="fname">First name</label>
+        <input type="text" id="fname" name="fname" placeholder="Jane" required>
+        <p class="error-msg" id="fnameErr">Required</p>
+      </div>
+      <div class="form-group">
+        <label for="lname">Last name</label>
+        <input type="text" id="lname" name="lname" placeholder="Doe">
+      </div>
+    </div>
+
+    <div class="form-group" style="animation-delay:0.2s">
+      <label for="email">Email address</label>
+      <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+      <p class="error-msg" id="emailErr">Enter a valid email</p>
+    </div>
+
+    <div class="form-group" style="animation-delay:0.28s">
+      <label for="subject">Subject</label>
+      <input type="text" id="subject" name="subject" placeholder="What's this about?">
+    </div>
+
+    <div class="form-group" style="animation-delay:0.36s">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" placeholder="Tell me everything..." required></textarea>
+      <p class="error-msg" id="msgErr">Required</p>
+    </div>
+
+    <button type="submit">
+      Send message
+      <span class="arrow">→</span>
+    </button>
+  </form>
+
+  <div class="success" id="successMsg">
+    <div class="success-icon">✉️</div>
+    <h2>Message sent!</h2>
+    <p>Thanks for reaching out. I'll be in touch shortly.</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
